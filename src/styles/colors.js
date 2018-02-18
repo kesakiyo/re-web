@@ -4,6 +4,7 @@ export default {
   purpleishBlue: '#7e55f3',
   purpleBlue: '#6333EB',
   white: '#FFFFFF',
+  whiteTwo: '#F8F8F8',
   whiteGrey: '#d5d5d5',
   brownishGrey: '#6B6B6B',
   gunmetal: '#495057',

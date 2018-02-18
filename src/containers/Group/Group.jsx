@@ -5,16 +5,25 @@ import { connect } from 'react-redux';
 import autobind from 'core-decorators/lib/autobind';
 
 /* Internal dependencies */
-import Button from '../../elements/Button';
+import Styled from './Group.styled';
+import GNB from '../../components/GNB';
 import actions from '../../redux/actions';
+import selectors from '../../redux/selectors';
+import ManagerModel from '../../models/Manager';
+
+const mapStateToProps = state => ({
+  group: selectors.groupSelectors.getGroup(state),
+  manager: selectors.managerSelectors.getManager(state),
+});
 
 const mapDispatchToProps = {
   signOut: actions.managerActions.signOut,
 };
 
-@connect(null, mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 class Group extends React.Component {
   static propTypes = {
+    manager: PropTypes.instanceOf(ManagerModel).isRequired,
     signOut: PropTypes.func.isRequired,
     history: PropTypes.shape({
       replace: PropTypes.func,
@@ -32,12 +41,12 @@ class Group extends React.Component {
 
   render() {
     return (
-      <div>
-        로그인이 되어있기때문에 이곳에 들어올 수 있다!
-        <Button onClick={this.handleSignOut}>
-          로그아웃
-        </Button>
-      </div>
+      <Styled.Wrapper>
+        <Styled.SideBar />
+        <Styled.Body>
+          <GNB manager={this.props.manager} />
+        </Styled.Body>
+      </Styled.Wrapper>
     );
   }
 }
