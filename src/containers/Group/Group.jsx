@@ -44,7 +44,10 @@ class Group extends React.Component {
       <Styled.Wrapper>
         <Styled.SideBar />
         <Styled.Body>
-          <GNB manager={this.props.manager} />
+          <GNB
+            manager={this.props.manager}
+            onSignOut={this.handleSignOut}
+          />
         </Styled.Body>
       </Styled.Wrapper>
     );

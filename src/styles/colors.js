@@ -8,4 +8,5 @@ export default {
   whiteGrey: '#d5d5d5',
   brownishGrey: '#6B6B6B',
   gunmetal: '#495057',
+  coolGreyTwo: '#ADB5bD',
 };
